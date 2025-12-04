@@ -1,17 +1,5 @@
 <script>
-    // export values
-    export let selectedRace;
-    export let selectedBackground;
-
-    // export values for the text inputs
-    export let definingTrait = "";
-    export let keyRelationship = "";
-    export let significantEvent = "";
-    export let majorAlteringEvent = "";
-    export let majorConflict = "";
-    export let immediateMotivation = "";
-    export let childhoodAmbition = "";
-    export let significantPossession = "";
+    import { characterData } from '../stores/characterStore.js';
 
     // full list of race options
     const races = [
@@ -35,10 +23,6 @@
         "Artisan",
         "Hermit"
     ];
-
-    // initialize selection to the first item
-    selectedRace = races[0];
-    selectedBackground = backgrounds[0];
 </script>
 
 <form class="character-form" method="post">
@@ -49,7 +33,7 @@
         <legend class="section-title">Character Basics</legend>
         <div class="form-group">
             <label for="select-race">Race:</label>
-            <select id="select-race" class="select-input" bind:value={selectedRace}>
+            <select id="select-race" class="select-input" bind:value={$characterData.race}>
                 {#each races as race}
                     <option value={race}>{race}</option>
                 {/each}
@@ -58,7 +42,7 @@
 
         <div class="form-group">
             <label for="select-background" class="form-label">Background:</label>
-            <select id="select-background" class="select-input" bind:value={selectedBackground}>
+            <select id="select-background" class="select-input" bind:value={$characterData.background}>
                 {#each backgrounds as background}
                     <option value={background}>{background}</option>
                 {/each}
@@ -71,42 +55,42 @@
         <legend class="section-title">Character Hooks</legend>
         <div class="form-group">
             <label for="defining-trait" class="form-label">Defining Trait:</label>
-            <input id="defining-trait" class="text-input" type="text" bind:value={definingTrait} />
+            <input id="defining-trait" class="text-input" type="text" bind:value={$characterData.definingTrait} />
         </div>
 
         <div class="form-group">
             <label for="key-relationship" class="form-label">Key Relationship:</label>
-            <input id="key-relationship" class="text-input" type="text" bind:value={keyRelationship} />
+            <input id="key-relationship" class="text-input" type="text" bind:value={$characterData.keyRelationship} />
         </div>
 
         <div class="form-group">
             <label for="significant-event" class="form-label">Significant Event:</label>
-            <input id="significant-event" class="text-input" type="text" bind:value={significantEvent} />
+            <input id="significant-event" class="text-input" type="text" bind:value={$characterData.significantEvent} />
         </div>
 
         <div class="form-group">
             <label for="major-altering-event" class="form-label">Major Altering Event:</label>
-            <input id="major-altering-event" class="text-input" type="text" bind:value={majorAlteringEvent} />
+            <input id="major-altering-event" class="text-input" type="text" bind:value={$characterData.majorAlteringEvent} />
         </div>
 
         <div class="form-group">
             <label for="major-conflict" class="form-label">Major Conflict:</label>
-            <input id="major-conflict" class="text-input" type="text" bind:value={majorConflict} />
+            <input id="major-conflict" class="text-input" type="text" bind:value={$characterData.majorConflict} />
         </div>
 
         <div class="form-group">
             <label for="immediate-motivation" class="form-label">Immediate Motivation:</label>
-            <input id="immediate-motivation" class="text-input" type="text" bind:value={immediateMotivation} />
+            <input id="immediate-motivation" class="text-input" type="text" bind:value={$characterData.immediateMotivation} />
         </div>
 
         <div class="form-group">
             <label for="childhood-ambition" class="form-label">Childhood Ambition:</label>
-            <input id="childhood-ambition" class="text-input" type="text" bind:value={childhoodAmbition} />
+            <input id="childhood-ambition" class="text-input" type="text" bind:value={$characterData.childhoodAmbition} />
         </div>
 
         <div class="form-group">
             <label for="significant-possession" class="form-label">Significant Possession:</label>
-            <input id="significant-possession" class="text-input" type="text" bind:value={significantPossession} />
+            <input id="significant-possession" class="text-input" type="text" bind:value={$characterData.significantPossession} />
         </div>
     </fieldset>
 
