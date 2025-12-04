@@ -2,6 +2,12 @@
     import { characterData } from '../stores/characterStore.js';
 
     // full list of race options
+    import { llmStatus } from '../stores/llmStore.js';
+    import { randomizeAllFields, formatCharacterAsListFormat, copyToClipboard } from '../utils/characterUtils.js';
+    import { generateBackstory } from '../stores/llmStore.js';
+    import { get } from 'svelte/store';
+
+    // full list of race options
     const races = [
         "Human",
         "Elf",
@@ -23,6 +29,27 @@
         "Artisan",
         "Hermit"
     ];
+
+    // Handler for randomize all button
+    function randomizeAll(event) {
+        event.preventDefault();
+        randomizeAllFields();
+    }
+
+    // Handler for print list format button
+    function handlePrintFormat(event) {
+        event.preventDefault();
+        const formattedText = formatCharacterAsListFormat();
+        copyToClipboard(formattedText);
+        alert('Character sheet copied to clipboard!');
+    }
+
+    // Handler for generate backstory button
+    async function handleGenerate(event) {
+        event.preventDefault();
+        const currentData = get(characterData);
+        await generateBackstory(currentData);
+    }
 </script>
 
 <form class="character-form" method="post">
@@ -96,9 +123,9 @@
 
     <!-- Buttons -->
     <div class="button-group">
-        <button type="submit" class="btn btn-primary" id="randomize">Randomize All</button>
-        <button type="submit" class="btn btn-secondary" id="print-list-format">Print List Format</button>
-        <button type="submit" class="btn btn-success" id="generate-full-backstory">Generate Full Backstory</button>
+        <button type="submit" class="btn btn-primary" on:click={randomizeAll} id="randomize">Randomize All</button>
+        <button type="submit" class="btn btn-secondary" on:click={handlePrintFormat} id="print-list-format">Print List Format</button>
+        <button type="submit" class="btn btn-success" on:click={handleGenerate} id="generate-full-backstory">Generate Full Backstory</button>
     </div>
 </form>
 
