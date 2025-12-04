@@ -1,7 +1,7 @@
 <script>
   import CharacterHooks from './lib/CharacterHooks.svelte';
   import OutputPane from './lib/OutputPane.svelte';
-  import d20 from './assets/d20.svg';
+  import d20 from './assets/d20.jpg';
 </script>
 
 <main class="app-root">
