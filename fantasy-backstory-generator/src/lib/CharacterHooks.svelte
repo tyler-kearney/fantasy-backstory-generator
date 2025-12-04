@@ -117,3 +117,192 @@
         <button type="submit" class="btn btn-success" id="generate-full-backstory">Generate Full Backstory</button>
     </div>
 </form>
+
+<style>
+    :global(:root) {
+        --color-primary: #818cf8;
+        --color-primary-dark: #6366f1;
+        --color-secondary: #a78bfa;
+        --color-success: #34d399;
+        --color-surface: #1f2937;
+        --color-surface-variant: #111827;
+        --color-border: #374151;
+        --color-text-primary: #f3f4f6;
+        --color-text-secondary: #d1d5db;
+        --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+        --radius-sm: 4px;
+        --radius-md: 8px;
+        --radius-lg: 12px;
+        --transition: all 0.2s ease-in-out;
+    }
+
+    .character-form {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 32px;
+        background: var(--color-surface);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .form-title {
+        margin: 0;
+        font-size: 28px;
+        font-weight: 500;
+        color: var(--color-text-primary);
+        letter-spacing: -0.5px;
+    }
+
+    .form-section {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        border: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .section-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--color-text-primary);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin: 0 0 8px 0;
+        padding-bottom: 8px;
+        border-bottom: 2px solid var(--color-primary);
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .form-label {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--color-text-primary);
+        letter-spacing: 0.25px;
+    }
+
+    .select-input,
+    .text-input {
+        padding: 12px 14px;
+        font-size: 14px;
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+        background: var(--color-surface-variant);
+        color: var(--color-text-primary);
+        transition: var(--transition);
+        font-family: inherit;
+    }
+
+    .select-input:hover,
+    .text-input:hover {
+        border-color: var(--color-primary);
+        box-shadow: var(--shadow-sm);
+    }
+
+    .select-input:focus,
+    .text-input:focus {
+        outline: none;
+        border-color: var(--color-primary);
+        box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.2);
+    }
+
+    .select-input::placeholder {
+        color: var(--color-text-secondary);
+    }
+
+    .button-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 8px;
+    }
+
+    .btn {
+        padding: 12px 20px;
+        font-size: 14px;
+        font-weight: 600;
+        border: none;
+        border-radius: var(--radius-md);
+        cursor: pointer;
+        transition: var(--transition);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        box-shadow: var(--shadow-sm);
+    }
+
+    .btn:hover {
+        box-shadow: var(--shadow-md);
+        transform: translateY(-2px);
+    }
+
+    .btn:active {
+        transform: translateY(0);
+        box-shadow: var(--shadow-sm);
+    }
+
+    .btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+    .btn-primary {
+        background: var(--color-primary);
+        color: #1f2937;
+    }
+
+    .btn-primary:hover:not(:disabled) {
+        background: var(--color-primary-dark);
+        color: white;
+    }
+
+    .btn-secondary {
+        background: var(--color-secondary);
+        color: #1f2937;
+    }
+
+    .btn-secondary:hover:not(:disabled) {
+        background: #c4b5fd;
+        color: #1f2937;
+    }
+
+    .btn-success {
+        background: var(--color-success);
+        color: #1f2937;
+    }
+
+    .btn-success:hover:not(:disabled) {
+        background: #6ee7b7;
+        color: #1f2937;
+    }
+
+    /* Responsive design */
+    @media (max-width: 640px) {
+        .character-form {
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .form-title {
+            font-size: 24px;
+        }
+
+        .button-group {
+            flex-direction: column;
+        }
+
+        .btn {
+            width: 100%;
+        }
+    }
+</style>
